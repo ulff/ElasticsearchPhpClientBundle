@@ -19,6 +19,5 @@
     "autoload": {
         "psr-4": { "Ulff\\ElasticsearchPhpClientBundle\\": "" },
         "exclude-from-classmap": ["/Tests/", "/Test/"]
-    },
-    "target-dir": "Ulff/ElasticsearchPhpClientBundle"
+    }
 }
