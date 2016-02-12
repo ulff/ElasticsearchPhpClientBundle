@@ -1,0 +1,4 @@
+services:
+    ulff_elasticsearch_php_client.client:
+        class: Ulff\ElasticsearchPhpClientBundle\Client\ElasticSearchPhpClient
+        arguments: ["%ulff_elasticsearch_php_client%"]
