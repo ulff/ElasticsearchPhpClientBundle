@@ -8,7 +8,7 @@
 Install bundle using [composer](https://getcomposer.org):
 
 ```
-php composer.phar require "ulff/elasticsearch-php-client-bundle:*"
+php composer.phar require "ulff/elasticsearch-php-client-bundle:dev-master"
 ```
 
 Enable the bundle in AppKernel.php:
