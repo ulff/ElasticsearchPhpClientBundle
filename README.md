@@ -13,7 +13,7 @@ php composer.phar require "ulff/elasticsearch-php-client-bundle:dev-master"
 
 Enable the bundle in AppKernel.php:
 
-```
+```php
 // app/AppKernel.php
 
 public function registerBundles()
@@ -31,7 +31,7 @@ public function registerBundles()
 
 Add following configuration to config.yml:
 
-```
+```yaml
 # app/config/config.yml
 
 ulff_elasticsearch_php_client:
@@ -45,13 +45,13 @@ Replace values with proper ones.
 
 Elasticsearch client is available as a service:
 
-```
+```php
 $client = $this->get('ulff_elasticsearch_php_client.client');
 ```
 
 Create new index:
 
-```
+```php
 $indexParams = new IndexParams('index-name', 'type-name', 'id');
 $indexParams->setBody(['someField' => 'some value']);
 $response = $client->index($indexParams);
@@ -59,7 +59,7 @@ $response = $client->index($indexParams);
 
 Make search query:
 
-```
+```php
 $searchParams = new SearchParams('index-name', 'type-name');
 $searchParams->setBody([
     'query' => [
