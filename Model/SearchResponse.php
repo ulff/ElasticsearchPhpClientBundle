@@ -2,8 +2,6 @@
 
 namespace Ulff\ElasticsearchPhpClientBundle\Model;
 
-use Elasticsearch\Helper\Iterators\SearchHitIterator;
-
 class SearchResponse
 {
     /**
@@ -22,7 +20,7 @@ class SearchResponse
     private $shards;
 
     /**
-     * @var array
+     * @var SearchHits
      */
     private $hits;
 
@@ -40,7 +38,7 @@ class SearchResponse
         $this->took = $response['took'];
         $this->timedOut = $response['timed_out'];
         $this->shards = $response['_shards'];
-        $this->hits = $response['hits'];
+        $this->hits = new SearchHits($response['hits']);
         $this->originalResponse = $response;
     }
 
@@ -71,7 +69,7 @@ class SearchResponse
     /**
      * @return array
      */
-    public function getHits(): array
+    public function getHits(): SearchHits
     {
         return $this->hits;
     }

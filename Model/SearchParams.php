@@ -2,8 +2,13 @@
 
 namespace Ulff\ElasticsearchPhpClientBundle\Model;
 
+use Ulff\ElasticsearchPhpClientBundle\Exception\MaxAllowedSearchResultsSizeExceededException;
+
 class SearchParams
 {
+    const DEFAULT_SIZE = 10;
+    const MAX_ALLOWED_SIZE = 10000;
+
     /**
      * @var string
      */
@@ -20,6 +25,11 @@ class SearchParams
     private $body;
 
     /**
+     * @var int
+     */
+    private $size;
+
+    /**
      * SearchParams constructor.
      * @param string $index
      * @param string $type
@@ -28,6 +38,7 @@ class SearchParams
     {
         $this->index = $index;
         $this->type = $type;
+        $this->size = self::DEFAULT_SIZE;
     }
 
     /**
@@ -38,7 +49,8 @@ class SearchParams
         return [
             'index' => $this->getIndex(),
             'type' => $this->getType(),
-            'body' => $this->getBody()
+            'body' => $this->getBody(),
+            'size' => $this->getSize()
         ];
     }
 
@@ -48,6 +60,17 @@ class SearchParams
     public function setBody($body)
     {
         $this->body = $body;
+    }
+
+    /**
+     * @param int $size
+     */
+    public function setSize($size)
+    {
+        if($size > self::MAX_ALLOWED_SIZE) {
+            throw new MaxAllowedSearchResultsSizeExceededException($size);
+        }
+        $this->size = $size;
     }
 
     /**
@@ -72,5 +95,13 @@ class SearchParams
     public function getBody(): array
     {
         return $this->body;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSize(): int
+    {
+        return $this->size;
     }
 }
