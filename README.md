@@ -59,7 +59,7 @@ $response = $client->index($indexParams);
 
 Returns [IndexResponse](Model/IndexResponse.php) object.
 
-#### Get index:
+#### Get document:
 
 ```php
 $getParams = new GetParams('index-name', 'type-name', 'id');
@@ -67,6 +67,15 @@ $response = $client->get($getParams);
 ```
 
 Returns [GetResponse](Model/GetResponse.php) object.
+
+#### Delete document:
+
+```php
+$deleteParams = new DeleteParams('index-name', 'type-name', 'id');
+$response = $client->delete($deleteParams);
+```
+
+Returns [DeleteResponse](Model/DeleteResponse.php) object.
 
 #### Make search query:
 
