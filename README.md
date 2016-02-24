@@ -49,7 +49,7 @@ Elasticsearch client is available as a service:
 $client = $this->get('ulff_elasticsearch_php_client.client');
 ```
 
-Create new index:
+#### Create new index:
 
 ```php
 $indexParams = new IndexParams('index-name', 'type-name', 'id');
@@ -57,7 +57,18 @@ $indexParams->setBody(['someField' => 'some value']);
 $response = $client->index($indexParams);
 ```
 
-Make search query:
+Returns [IndexResponse](Model/IndexResponse.php) object.
+
+#### Get index:
+
+```php
+$getParams = new GetParams('index-name', 'type-name', 'id');
+$response = $client->get($getParams);
+```
+
+Returns [GetResponse](Model/GetResponse.php) object.
+
+#### Make search query:
 
 ```php
 $searchParams = new SearchParams('index-name', 'type-name');
@@ -70,6 +81,8 @@ $searchParams->setBody([
 ]);
 $response = $client->search($searchParams);
 ```
+
+Returns [SearchResponse](Model/SearchResponse.php) object.
 
 ### Full Elasticsearch-PHP 2.0 documentation:
 

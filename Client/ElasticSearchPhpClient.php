@@ -2,6 +2,8 @@
 
 namespace Ulff\ElasticsearchPhpClientBundle\Client;
 
+use Ulff\ElasticsearchPhpClientBundle\Model\GetParams;
+use Ulff\ElasticsearchPhpClientBundle\Model\GetResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\IndexParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\IndexResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\SearchParams;
@@ -61,6 +63,15 @@ final class ElasticSearchPhpClient
     public function search(SearchParams $params): SearchResponse
     {
         return new SearchResponse($this->client->search($params->toArray()));
+    }
+
+    /**
+     * @param GetParams $params
+     * @return GetResponse
+     */
+    public function get(GetParams $params): GetResponse
+    {
+        return new GetResponse($this->client->get($params->toArray()));
     }
 
     private function validateSetup()
