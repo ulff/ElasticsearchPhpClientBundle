@@ -2,6 +2,8 @@
 
 namespace Ulff\ElasticsearchPhpClientBundle\Client;
 
+use Ulff\ElasticsearchPhpClientBundle\Model\DeleteParams;
+use Ulff\ElasticsearchPhpClientBundle\Model\DeleteResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\GetParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\GetResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\IndexParams;
@@ -72,6 +74,15 @@ final class ElasticSearchPhpClient
     public function get(GetParams $params): GetResponse
     {
         return new GetResponse($this->client->get($params->toArray()));
+    }
+
+    /**
+     * @param DeleteParams $params
+     * @return DeleteResponse
+     */
+    public function delete(DeleteParams $params): DeleteResponse
+    {
+        return new DeleteResponse($this->client->delete($params->toArray()));
     }
 
     private function validateSetup()
