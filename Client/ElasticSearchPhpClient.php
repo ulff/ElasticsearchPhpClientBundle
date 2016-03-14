@@ -16,7 +16,7 @@ final class ElasticSearchPhpClient
     /**
      * @var \Elasticsearch\Client
      */
-    private $client;
+    private $nativeClient;
 
     /**
      * @var string
@@ -38,15 +38,15 @@ final class ElasticSearchPhpClient
         $this->validateSetup();
         $this->retrieveParams($params);
 
-        $this->client = \Elasticsearch\ClientBuilder::create()->setHosts([$this->host.':'.$this->port])->build();
+        $this->nativeClient = \Elasticsearch\ClientBuilder::create()->setHosts([$this->host.':'.$this->port])->build();
     }
 
     /**
      * @return \Elasticsearch\Client
      */
-    public function getClient()
+    public function getNativeClient()
     {
-        return $this->client;
+        return $this->nativeClient;
     }
 
     /**
@@ -55,7 +55,7 @@ final class ElasticSearchPhpClient
      */
     public function index(IndexParams $params): IndexResponse
     {
-        return new IndexResponse($this->client->index($params->toArray()));
+        return new IndexResponse($this->nativeClient->index($params->toArray()));
     }
 
     /**
@@ -64,7 +64,7 @@ final class ElasticSearchPhpClient
      */
     public function search(SearchParams $params): SearchResponse
     {
-        return new SearchResponse($this->client->search($params->toArray()));
+        return new SearchResponse($this->nativeClient->search($params->toArray()));
     }
 
     /**
@@ -73,7 +73,7 @@ final class ElasticSearchPhpClient
      */
     public function get(GetParams $params): GetResponse
     {
-        return new GetResponse($this->client->get($params->toArray()));
+        return new GetResponse($this->nativeClient->get($params->toArray()));
     }
 
     /**
@@ -82,7 +82,7 @@ final class ElasticSearchPhpClient
      */
     public function delete(DeleteParams $params): DeleteResponse
     {
-        return new DeleteResponse($this->client->delete($params->toArray()));
+        return new DeleteResponse($this->nativeClient->delete($params->toArray()));
     }
 
     private function validateSetup()

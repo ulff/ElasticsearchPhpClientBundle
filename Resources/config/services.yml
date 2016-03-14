@@ -2,3 +2,7 @@ services:
     ulff_elasticsearch_php_client.client:
         class: Ulff\ElasticsearchPhpClientBundle\Client\ElasticSearchPhpClient
         arguments: ["%ulff_elasticsearch_php_client%"]
+
+    ulff_elasticsearch_php_client.purger:
+        class: Ulff\ElasticsearchPhpClientBundle\Service\ElasticSearchPurger
+        arguments: ["@ulff_elasticsearch_php_client.client"]
