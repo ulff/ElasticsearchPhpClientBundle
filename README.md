@@ -43,6 +43,8 @@ Replace values with proper ones.
 
 ## Usage
 
+### Client usage
+
 Elasticsearch client is available as a service:
 
 ```php
@@ -92,6 +94,20 @@ $response = $client->search($searchParams);
 ```
 
 Returns [SearchResponse](Model/SearchResponse.php) object.
+
+### Purger usage
+
+Bundle offers a possibility to purge whole index (by deleting and recreating empty). This can be useful e.g. for
+testing purposes.
+
+
+There is a separate ```ulff_elasticsearch_php_client.purger``` service provided with the bundle.
+Following example shows how to purge index:
+
+```php
+$purger = $this->get('ulff_elasticsearch_php_client.purger');
+$purger->purgeIndex('index_name');
+```
 
 ### Full Elasticsearch-PHP 2.0 documentation:
 
