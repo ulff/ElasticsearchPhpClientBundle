@@ -40,7 +40,6 @@ class DeleteResponse
     private $originalResponse;
 
     /**
-     * GetResponse constructor.
      * @param array $response
      */
     public function __construct(array $response)
@@ -57,7 +56,7 @@ class DeleteResponse
     /**
      * @return string
      */
-    public function getIndex(): string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -65,7 +64,7 @@ class DeleteResponse
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -73,7 +72,7 @@ class DeleteResponse
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -81,7 +80,7 @@ class DeleteResponse
     /**
      * @return int
      */
-    public function getVersion(): int
+    public function getVersion()
     {
         return $this->version;
     }
@@ -89,7 +88,7 @@ class DeleteResponse
     /**
      * @return boolean
      */
-    public function wasFound(): boolean
+    public function wasFound()
     {
         return $this->found;
     }
@@ -97,7 +96,7 @@ class DeleteResponse
     /**
      * @return array
      */
-    public function getShards(): array
+    public function getShards()
     {
         return $this->shards;
     }
@@ -105,7 +104,7 @@ class DeleteResponse
     /**
      * @return array
      */
-    public function getOriginalResponse(): array
+    public function getOriginalResponse()
     {
         return $this->originalResponse;
     }

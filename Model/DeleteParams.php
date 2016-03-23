@@ -20,12 +20,11 @@ class DeleteParams
     private $id;
 
     /**
-     * DeleteParams constructor.
      * @param string $index
      * @param string $type
      * @param string $id
      */
-    public function __construct(string $index, string $type, string $id)
+    public function __construct($index, $type, $id)
     {
         $this->index = $index;
         $this->type = $type;
@@ -35,7 +34,7 @@ class DeleteParams
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'index' => $this->getIndex(),
@@ -47,7 +46,7 @@ class DeleteParams
     /**
      * @return string
      */
-    public function getIndex(): string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -55,7 +54,7 @@ class DeleteParams
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -63,7 +62,7 @@ class DeleteParams
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }

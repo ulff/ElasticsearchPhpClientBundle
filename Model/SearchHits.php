@@ -32,7 +32,7 @@ class SearchHits
     /**
      * @return int
      */
-    public function getTotal(): int
+    public function getTotal()
     {
         return $this->total;
     }
@@ -40,7 +40,7 @@ class SearchHits
     /**
      * @return float
      */
-    public function getMaxScore(): float
+    public function getMaxScore()
     {
         return $this->maxScore;
     }
@@ -48,7 +48,7 @@ class SearchHits
     /**
      * @return SearchHitItem[]
      */
-    public function getSearchHitItems(): array
+    public function getSearchHitItems()
     {
         return $this->searchHitItems;
     }

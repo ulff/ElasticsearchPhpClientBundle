@@ -57,7 +57,7 @@ class GetResponse
     /**
      * @return string
      */
-    public function getIndex(): string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -65,7 +65,7 @@ class GetResponse
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -73,7 +73,7 @@ class GetResponse
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -81,7 +81,7 @@ class GetResponse
     /**
      * @return int
      */
-    public function getVersion(): int
+    public function getVersion()
     {
         return $this->version;
     }
@@ -89,7 +89,7 @@ class GetResponse
     /**
      * @return boolean
      */
-    public function wasFound(): boolean
+    public function wasFound()
     {
         return $this->found;
     }
@@ -97,7 +97,7 @@ class GetResponse
     /**
      * @return array
      */
-    public function getSource(): array
+    public function getSource()
     {
         return $this->source;
     }
@@ -105,7 +105,7 @@ class GetResponse
     /**
      * @return array
      */
-    public function getOriginalResponse(): array
+    public function getOriginalResponse()
     {
         return $this->originalResponse;
     }
