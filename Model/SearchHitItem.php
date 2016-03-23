@@ -49,7 +49,7 @@ class SearchHitItem
     /**
      * @return string
      */
-    public function getIndex(): string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -57,7 +57,7 @@ class SearchHitItem
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -65,7 +65,7 @@ class SearchHitItem
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -73,7 +73,7 @@ class SearchHitItem
     /**
      * @return float
      */
-    public function getScore(): float
+    public function getScore()
     {
         return $this->score;
     }
@@ -81,7 +81,7 @@ class SearchHitItem
     /**
      * @return array
      */
-    public function getSource(): array
+    public function getSource()
     {
         return $this->source;
     }

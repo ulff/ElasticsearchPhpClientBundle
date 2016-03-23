@@ -30,7 +30,6 @@ class SearchResponse
     private $originalResponse;
 
     /**
-     * SearchResponse constructor.
      * @param array $response
      */
     public function __construct(array $response)
@@ -45,7 +44,7 @@ class SearchResponse
     /**
      * @return int
      */
-    public function getTook(): int
+    public function getTook()
     {
         return $this->took;
     }
@@ -53,7 +52,7 @@ class SearchResponse
     /**
      * @return bool
      */
-    public function wasTimedOut(): bool
+    public function wasTimedOut()
     {
         return $this->timedOut;
     }
@@ -61,15 +60,15 @@ class SearchResponse
     /**
      * @return array
      */
-    public function getShards(): array
+    public function getShards()
     {
         return $this->shards;
     }
 
     /**
-     * @return array
+     * @return SearchHits
      */
-    public function getHits(): SearchHits
+    public function getHits()
     {
         return $this->hits;
     }
@@ -77,7 +76,7 @@ class SearchResponse
     /**
      * @return array
      */
-    public function getOriginalResponse(): array
+    public function getOriginalResponse()
     {
         return $this->originalResponse;
     }

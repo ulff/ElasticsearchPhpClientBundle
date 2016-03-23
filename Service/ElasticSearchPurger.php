@@ -11,14 +11,22 @@ class ElasticSearchPurger
      */
     private $client;
 
+    /**
+     * @param ElasticSearchPhpClient $client
+     */
     public function __construct(ElasticSearchPhpClient $client)
     {
         $this->client = $client;
     }
 
-    public function purgeIndex(string $indexName)
+    /**
+     * @param string $indexName
+     */
+    public function purgeIndex($indexName)
     {
-        $this->client->getNativeClient()->indices()->delete(['index' => $indexName]);
+        if($this->client->getNativeClient()->indices()->exists(['index' => $indexName])) {
+            $this->client->getNativeClient()->indices()->delete(['index' => $indexName]);
+        }
         $this->client->getNativeClient()->indices()->create(['index' => $indexName]);
     }
 }

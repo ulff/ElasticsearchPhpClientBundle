@@ -30,11 +30,10 @@ class SearchParams
     private $size;
 
     /**
-     * SearchParams constructor.
      * @param string $index
      * @param string $type
      */
-    public function __construct(string $index, string $type)
+    public function __construct($index, $type)
     {
         $this->index = $index;
         $this->type = $type;
@@ -44,7 +43,7 @@ class SearchParams
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'index' => $this->getIndex(),
@@ -76,7 +75,7 @@ class SearchParams
     /**
      * @return string
      */
-    public function getIndex(): string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -84,7 +83,7 @@ class SearchParams
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -92,7 +91,7 @@ class SearchParams
     /**
      * @return array
      */
-    public function getBody(): array
+    public function getBody()
     {
         return $this->body;
     }
@@ -100,7 +99,7 @@ class SearchParams
     /**
      * @return int
      */
-    public function getSize(): int
+    public function getSize()
     {
         return $this->size;
     }

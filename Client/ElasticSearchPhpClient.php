@@ -29,7 +29,6 @@ final class ElasticSearchPhpClient
     private $port;
 
     /**
-     * ElasticSearchPhpClient constructor.
      * @param string $host
      * @param string $port
      */
@@ -53,7 +52,7 @@ final class ElasticSearchPhpClient
      * @param IndexParams $params
      * @return IndexResponse
      */
-    public function index(IndexParams $params): IndexResponse
+    public function index(IndexParams $params)
     {
         return new IndexResponse($this->nativeClient->index($params->toArray()));
     }
@@ -62,7 +61,7 @@ final class ElasticSearchPhpClient
      * @param SearchParams $params
      * @return SearchResponse
      */
-    public function search(SearchParams $params): SearchResponse
+    public function search(SearchParams $params)
     {
         return new SearchResponse($this->nativeClient->search($params->toArray()));
     }
@@ -71,7 +70,7 @@ final class ElasticSearchPhpClient
      * @param GetParams $params
      * @return GetResponse
      */
-    public function get(GetParams $params): GetResponse
+    public function get(GetParams $params)
     {
         return new GetResponse($this->nativeClient->get($params->toArray()));
     }
@@ -80,7 +79,7 @@ final class ElasticSearchPhpClient
      * @param DeleteParams $params
      * @return DeleteResponse
      */
-    public function delete(DeleteParams $params): DeleteResponse
+    public function delete(DeleteParams $params)
     {
         return new DeleteResponse($this->nativeClient->delete($params->toArray()));
     }
