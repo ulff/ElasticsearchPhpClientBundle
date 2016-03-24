@@ -66,7 +66,7 @@ class SearchParams
      */
     public function setSize($size)
     {
-        if($size > self::MAX_ALLOWED_SIZE) {
+        if ($size > self::MAX_ALLOWED_SIZE) {
             throw new MaxAllowedSearchResultsSizeExceededException($size);
         }
         $this->size = $size;

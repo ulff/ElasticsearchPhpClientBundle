@@ -29,7 +29,7 @@ class IndexParams
      * @param string $type
      * @param string $id
      */
-    public function __construct($index, $type, $id)
+    public function __construct($index, $type, $id = null)
     {
         $this->index = $index;
         $this->type = $type;
@@ -41,12 +41,16 @@ class IndexParams
      */
     public function toArray()
     {
-        return [
+        $asArray = [
             'index' => $this->getIndex(),
             'type' => $this->getType(),
-            'id' => $this->getId(),
             'body' => $this->getBody()
         ];
+        if (!empty($this->getId())) {
+            $asArray['id'] = $this->getId();
+        }
+
+        return $asArray;
     }
 
     /**

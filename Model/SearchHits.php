@@ -24,7 +24,7 @@ class SearchHits
         $this->total = $searchHits['total'];
         $this->maxScore = $searchHits['max_score'];
         $this->searchHitItems = [];
-        foreach($searchHits['hits'] as $hitItem) {
+        foreach ($searchHits['hits'] as $hitItem) {
             $this->searchHitItems[] = new SearchHitItem($hitItem);
         }
     }
