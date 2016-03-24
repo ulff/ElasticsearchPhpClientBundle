@@ -39,7 +39,7 @@ class IndexParams
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return [
             'index' => $this->getIndex(),
