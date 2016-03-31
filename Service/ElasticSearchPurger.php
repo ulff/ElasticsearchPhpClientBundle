@@ -28,5 +28,8 @@ class ElasticSearchPurger
             $this->client->getNativeClient()->indices()->delete(['index' => $indexName]);
         }
         $this->client->getNativeClient()->indices()->create(['index' => $indexName]);
+        $this->client->getNativeClient()->cluster()->health([
+            'wait_for_status' => 'yellow'
+        ]);
     }
 }
