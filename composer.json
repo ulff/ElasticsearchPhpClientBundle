@@ -2,7 +2,7 @@
     "name": "ulff/elasticsearch-php-client-bundle",
     "type": "symfony-bundle",
     "description": "A very simple bundle for integrating Symfony2.x/3.x with Elasticsearch-PHP 2.0",
-    "keywords": ["elastic", "elasticsearch", "elasticsearch-php", "symfony3", "symfony2", "bundle", "php7", "php5.6"],
+    "keywords": ["elastic", "elasticsearch", "elasticsearch-php", "symfony3", "symfony2", "bundle", "php7", "php5"],
     "license": "MIT",
     "authors": [
         {
