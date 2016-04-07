@@ -49,7 +49,7 @@ class IndexResponse
         $this->type = $response['_type'];
         $this->id = $response['_id'];
         $this->version = $response['_version'];
-        $this->shards = $response['_shards'];
+        $this->shards = isset($response['_shards']) ? $response['_shards'] : [];
         $this->created = $response['created'];
         $this->originalResponse = $response;
     }
