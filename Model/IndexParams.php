@@ -25,6 +25,11 @@ class IndexParams
     private $body;
 
     /**
+     * @var array
+     */
+    private $options = [];
+
+    /**
      * @param string $index
      * @param string $type
      * @param string $id
@@ -50,7 +55,7 @@ class IndexParams
             $asArray['id'] = $this->getId();
         }
 
-        return $asArray;
+        return $asArray + $this->options;
     }
 
     /**
@@ -59,6 +64,15 @@ class IndexParams
     public function setBody($body)
     {
         $this->body = $body;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     */
+    public function setOption($name, $value)
+    {
+        $this->options[$name] = $value;
     }
 
     /**
