@@ -30,6 +30,11 @@ class SearchParams
     private $size;
 
     /**
+     * @var array
+     */
+    private $options = [];
+
+    /**
      * @param string $index
      * @param string $type
      */
@@ -45,12 +50,14 @@ class SearchParams
      */
     public function toArray()
     {
-        return [
+        $asArray = [
             'index' => $this->getIndex(),
             'type' => $this->getType(),
             'body' => $this->getBody(),
-            'size' => $this->getSize()
-        ];
+            'size' => $this->getSize(),
+        }
+
+        return $asArray + $this->options;
     }
 
     /**
@@ -102,5 +109,14 @@ class SearchParams
     public function getSize()
     {
         return $this->size;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     */
+    public function setOption($name, $value)
+    {
+        $this->options[$name] = $value;
     }
 }
