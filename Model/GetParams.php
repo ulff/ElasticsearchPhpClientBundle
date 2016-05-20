@@ -20,6 +20,11 @@ class GetParams
     private $id;
 
     /**
+     * @var array
+     */
+    private $options = [];
+
+    /**
      * @param string $index
      * @param string $type
      * @param string $id
@@ -36,11 +41,13 @@ class GetParams
      */
     public function toArray()
     {
-        return [
+        $asArray = [
             'index' => $this->getIndex(),
             'type' => $this->getType(),
-            'id' => $this->getId()
+            'id' => $this->getId(),
         ];
+
+        return $asArray + $this->options;
     }
 
     /**
@@ -65,5 +72,14 @@ class GetParams
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     */
+    public function setOption($name, $value)
+    {
+        $this->options[$name] = $value;
     }
 }
