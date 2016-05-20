@@ -55,7 +55,7 @@ class SearchParams
             'type' => $this->getType(),
             'body' => $this->getBody(),
             'size' => $this->getSize(),
-        }
+        ];
 
         return $asArray + $this->options;
     }

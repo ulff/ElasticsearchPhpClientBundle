@@ -45,7 +45,7 @@ class DeleteParams
             'index' => $this->getIndex(),
             'type' => $this->getType(),
             'id' => $this->getId(),
-        }
+        ];
 
         return $asArray + $this->options;
     }
