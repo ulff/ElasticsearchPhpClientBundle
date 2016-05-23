@@ -49,7 +49,7 @@ class DeleteResponse
         $this->id = $response['_id'];
         $this->version = $response['_version'];
         $this->found = $response['found'];
-        $this->shards = $response['_shards'];
+        $this->shards = isset($response['_shards']) ? $response['_shards'] : [];
         $this->originalResponse = $response;
     }
 

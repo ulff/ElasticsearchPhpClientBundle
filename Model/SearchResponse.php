@@ -36,7 +36,7 @@ class SearchResponse
     {
         $this->took = $response['took'];
         $this->timedOut = $response['timed_out'];
-        $this->shards = $response['_shards'];
+        $this->shards = isset($response['_shards']) ? $response['_shards'] : [];
         $this->hits = new SearchHits($response['hits']);
         $this->originalResponse = $response;
     }
