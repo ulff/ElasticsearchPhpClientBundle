@@ -6,6 +6,7 @@ use Ulff\ElasticsearchPhpClientBundle\Exception\MaxAllowedSearchResultsSizeExcee
 
 class SearchParams
 {
+    const DEFAULT_FROM = 0;
     const DEFAULT_SIZE = 10;
     const MAX_ALLOWED_SIZE = 10000;
 
@@ -25,6 +26,11 @@ class SearchParams
     private $body;
 
     /**
+    * @var int
+    */
+    private $from;
+
+    /**
      * @var int
      */
     private $size;
@@ -42,6 +48,7 @@ class SearchParams
     {
         $this->index = $index;
         $this->type = $type;
+        $this->from = self::DEFAULT_FROM;
         $this->size = self::DEFAULT_SIZE;
     }
 
@@ -54,6 +61,7 @@ class SearchParams
             'index' => $this->getIndex(),
             'type' => $this->getType(),
             'body' => $this->getBody(),
+            'from' => $this->getFrom(),
             'size' => $this->getSize(),
         ];
 
@@ -66,6 +74,14 @@ class SearchParams
     public function setBody($body)
     {
         $this->body = $body;
+    }
+
+    /**
+     * @param int $from
+     */
+    public function setFrom($from)
+    {
+        $this->from = $from;
     }
 
     /**
@@ -101,6 +117,14 @@ class SearchParams
     public function getBody()
     {
         return $this->body;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFrom()
+    {
+        return $this->from;
     }
 
     /**
