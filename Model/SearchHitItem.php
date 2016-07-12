@@ -30,12 +30,18 @@ class SearchHitItem
     private $source;
 
     /**
+    * @var array
+    */
+    private $fields = [];
+
+    /**
      * SearchHitItem constructor.
      * @param string $index
      * @param string $type
      * @param string $id
      * @param float $score
      * @param array $source
+     * @param array $fields
      */
     public function __construct(array $hitItem)
     {
@@ -44,6 +50,10 @@ class SearchHitItem
         $this->id = $hitItem['_id'];
         $this->score = $hitItem['_score'];
         $this->source = $hitItem['_source'];
+
+        if (array_key_exists('fields', $hitItem)) {
+            $this->fields = $hitItem['fields'];
+        }
     }
 
     /**
@@ -84,5 +94,13 @@ class SearchHitItem
     public function getSource()
     {
         return $this->source;
+    }
+
+    /**
+    * @return array
+    */
+    public function getFields()
+    {
+        return $this->fields;
     }
 }
