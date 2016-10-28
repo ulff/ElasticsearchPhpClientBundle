@@ -1,7 +1,7 @@
 {
     "name": "ulff/elasticsearch-php-client-bundle",
     "type": "symfony-bundle",
-    "description": "A very simple bundle for integrating Symfony2.x/3.x with Elasticsearch-PHP 2.0",
+    "description": "A very simple bundle for integrating Symfony2.x/3.x with Elasticsearch-PHP 5.0",
     "keywords": ["elastic", "elasticsearch", "elasticsearch-php", "symfony3", "symfony2", "bundle", "php7", "php5"],
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     "require": {
         "php": ">=5.5",
         "symfony/framework-bundle": "~2.1|~3.0",
-        "elasticsearch/elasticsearch": "~2.0"
+        "elasticsearch/elasticsearch": "~5.0"
     },
     "autoload": {
         "psr-4": { "Ulff\\ElasticsearchPhpClientBundle\\": "" },

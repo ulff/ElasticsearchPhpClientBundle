@@ -3,12 +3,21 @@
 
 ## Setting up bundle
 
+####Version Matrix
+You need to match your version of Elasticsearch to the appropriate version of this library.
+
+|Bundle Version|Elasticsearch Version|
+|---|---|
+|2.0|5.0|
+|1.0|>= 1.0, ⇐ 5.0|
+
+
 ### Step 1: Install bundle
 
 Install bundle using [composer](https://getcomposer.org):
 
 ```
-php composer.phar require "ulff/elasticsearch-php-client-bundle:dev-master"
+php composer.phar require "ulff/elasticsearch-php-client-bundle:2.0"
 ```
 
 Enable the bundle in AppKernel.php:
@@ -109,9 +118,12 @@ $purger = $this->get('ulff_elasticsearch_php_client.purger');
 $purger->purgeIndex('index_name');
 ```
 
-### Full Elasticsearch-PHP 2.0 documentation:
+## Full documentation:
 
-This bundle is a client for [Elasticsearch-PHP 2.0](https://www.elastic.co/guide/en/elasticsearch/client/php-api/2.0/index.html).
+This bundle is a client for: 
+ * [Elasticsearch-PHP 5.0](https://www.elastic.co/guide/en/elasticsearch/client/php-api/5.0/index.html)
+ * [Elasticsearch-PHP 2.0](https://www.elastic.co/guide/en/elasticsearch/client/php-api/2.0/index.html)
+
 Follow the documentation there.
 
 ## License
