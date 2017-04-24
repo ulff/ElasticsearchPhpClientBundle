@@ -27,11 +27,6 @@ class UpdateResponse
     private $version;
 
     /**
-     * @var boolean
-     */
-    private $found;
-
-    /**
      * @var array
      */
     private $shards;
@@ -50,7 +45,6 @@ class UpdateResponse
         $this->type = $response['_type'];
         $this->id = $response['_id'];
         $this->version = $response['_version'];
-        $this->found = $response['found'];
         $this->shards = isset($response['_shards']) ? $response['_shards'] : [];
         $this->originalResponse = $response;
     }
@@ -85,14 +79,6 @@ class UpdateResponse
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function wasFound()
-    {
-        return $this->found;
     }
 
     /**
