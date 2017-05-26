@@ -10,6 +10,8 @@ use Ulff\ElasticsearchPhpClientBundle\Model\IndexParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\IndexResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\SearchParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\SearchResponse;
+use Ulff\ElasticsearchPhpClientBundle\Model\UpdateParams;
+use Ulff\ElasticsearchPhpClientBundle\Model\UpdateResponse;
 
 final class ElasticSearchPhpClient
 {
@@ -82,6 +84,15 @@ final class ElasticSearchPhpClient
     public function delete(DeleteParams $params)
     {
         return new DeleteResponse($this->nativeClient->delete($params->toArray()));
+    }
+
+    /**
+     * @param UpdateParams $params
+     * @return UpdateResponse
+     */
+    public function update(UpdateParams $params)
+    {
+        return new UpdateResponse($this->nativeClient->update($params->toArray()));
     }
 
     private function validateSetup()

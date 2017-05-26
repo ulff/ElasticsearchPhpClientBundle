@@ -3,7 +3,7 @@
 
 ## Setting up bundle
 
-####Version Matrix
+#### Version Matrix
 You need to match your version of Elasticsearch to the appropriate version of this library.
 
 |Bundle Version|Elasticsearch Version|
@@ -102,7 +102,15 @@ $searchParams->setBody([
 $response = $client->search($searchParams);
 ```
 
-Returns [SearchResponse](Model/SearchResponse.php) object.
+#### Update document:
+
+```php
+$updateParams = new UpdateParams('index-name', 'type-name', 'id');
+$updateParams->setBody(['someField' => 'some value']);
+$response = $client->update($updateParams);
+```
+
+Returns [UpdateResponse](Model/UpdateResponse.php) object.
 
 ### Purger usage
 
