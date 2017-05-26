@@ -3,7 +3,7 @@
 
 ## Setting up bundle
 
-####Version Matrix
+#### Version Matrix
 You need to match your version of Elasticsearch to the appropriate version of this library.
 
 |Bundle Version|Elasticsearch Version|
