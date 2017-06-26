@@ -2,6 +2,8 @@
 
 namespace Ulff\ElasticsearchPhpClientBundle\Client;
 
+use Ulff\ElasticsearchPhpClientBundle\Model\DeleteByQuery\DeleteByQueryParams;
+use Ulff\ElasticsearchPhpClientBundle\Model\DeleteByQuery\DeleteByQueryResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\DeleteParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\DeleteResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\GetParams;
@@ -93,6 +95,15 @@ final class ElasticSearchPhpClient
     public function update(UpdateParams $params)
     {
         return new UpdateResponse($this->nativeClient->update($params->toArray()));
+    }
+
+    /**
+     * @param DeleteByQueryParams $params
+     * @return DeleteByQueryResponse
+     */
+    public function deleteByQuery(DeleteByQueryParams $params)
+    {
+        return new DeleteByQueryResponse($this->nativeClient->deleteByQuery($params->toArray()));
     }
 
     private function validateSetup()

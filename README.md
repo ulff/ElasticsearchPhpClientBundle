@@ -88,6 +88,20 @@ $response = $client->delete($deleteParams);
 
 Returns [DeleteResponse](Model/DeleteResponse.php) object.
 
+#### Delete by query:
+
+```php
+$deleteParams = new DeleteByQueryParams('index-name', 'type-name');
+$deleteParams->setBody([
+   'query' => [
+       'match_all' => new \stdClass(),
+   ]
+]);
+$response = $client->deleteByQuery($deleteParams);
+```
+
+Returns [DeleteByQueryResponse](Model/DeleteByQueryResponse.php) object.
+
 #### Make search query:
 
 ```php
