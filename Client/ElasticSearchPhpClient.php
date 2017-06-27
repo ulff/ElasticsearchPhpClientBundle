@@ -103,7 +103,12 @@ final class ElasticSearchPhpClient
      */
     public function deleteByQuery(DeleteByQueryParams $params)
     {
-        return new DeleteByQueryResponse($this->nativeClient->deleteByQuery($params->toArray()));
+        $response = [];
+        if ($this->getNativeClient()->indices()->exists(['index' => $params->getIndex()])) {
+            $response = $this->getNativeClient()->deleteByQuery($params->toArray());
+        }
+
+        return new DeleteByQueryResponse($response);
     }
 
     private function validateSetup()

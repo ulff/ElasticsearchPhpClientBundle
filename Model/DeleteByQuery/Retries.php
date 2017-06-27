@@ -16,10 +16,10 @@ class Retries
      */
     private $search;
 
-    public function __construct(array $retries)
+    public function __construct(array $retries = [])
     {
-        $this->bulk = $retries['bulk'];
-        $this->search = $retries['search'];
+        $this->bulk = $retries['bulk'] ?? 0;
+        $this->search = $retries['search'] ?? null;
     }
 
     /**

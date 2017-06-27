@@ -53,7 +53,7 @@ class DeleteByQueryResponse
     private $throttledMillis;
 
     /**
-     *
+     * Total number
      *
      * @var int
      */
@@ -70,16 +70,16 @@ class DeleteByQueryResponse
     /**
      * @param array $response
      */
-    public function __construct(array $response)
+    public function __construct(array $response = [])
     {
-        $this->took = $response['took'];
-        $this->deleted = $response['deleted'];
-        $this->batches = $response['batches'];
-        $this->versionConflicts = $response['version_conflicts'];
-        $this->retries = new Retries($response['retries']);
-        $this->throttledMillis = $response['throttled_millis'];
-        $this->total = isset($response['total']) ? $response['total'] : 0;
-        $this->failures = $response['failures'];
+        $this->took = $response['took'] ?? 0;
+        $this->deleted = $response['deleted'] ?? 0;
+        $this->batches = $response['batches'] ?? 0;
+        $this->versionConflicts = $response['version_conflicts'] ?? 0;
+        $this->retries = new Retries($response['retries'] ?? []);
+        $this->throttledMillis = $response['throttled_millis'] ?? 0;
+        $this->total = $response['total'] ?? 0;
+        $this->failures = $response['failures'] ?? 0;
         $this->originalResponse = $response;
     }
 
