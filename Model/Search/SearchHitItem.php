@@ -1,6 +1,6 @@
 <?php
 
-namespace Ulff\ElasticsearchPhpClientBundle\Model;
+namespace Ulff\ElasticsearchPhpClientBundle\Model\Search;
 
 class SearchHitItem
 {
