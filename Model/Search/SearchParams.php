@@ -1,6 +1,6 @@
 <?php
 
-namespace Ulff\ElasticsearchPhpClientBundle\Model;
+namespace Ulff\ElasticsearchPhpClientBundle\Model\Search;
 
 use Ulff\ElasticsearchPhpClientBundle\Exception\MaxAllowedSearchResultsSizeExceededException;
 
@@ -26,8 +26,8 @@ class SearchParams
     private $body;
 
     /**
-    * @var int
-    */
+     * @var int
+     */
     private $from;
 
     /**
@@ -41,6 +41,11 @@ class SearchParams
     private $options = [];
 
     /**
+     * @var array
+     */
+    private $sort;
+
+    /**
      * @param string $index
      * @param string $type
      */
@@ -50,6 +55,7 @@ class SearchParams
         $this->type = $type;
         $this->from = self::DEFAULT_FROM;
         $this->size = self::DEFAULT_SIZE;
+        $this->sort = [];
     }
 
     /**
@@ -61,8 +67,6 @@ class SearchParams
             'index' => $this->getIndex(),
             'type' => $this->getType(),
             'body' => $this->getBody(),
-            'from' => $this->getFrom(),
-            'size' => $this->getSize(),
         ];
 
         return $asArray + $this->options;
@@ -93,6 +97,14 @@ class SearchParams
             throw new MaxAllowedSearchResultsSizeExceededException($size);
         }
         $this->size = $size;
+    }
+
+    /**
+     * @param array $sort
+     */
+    public function setSort(array $sort)
+    {
+        $this->sort = $sort;
     }
 
     /**
@@ -142,5 +154,13 @@ class SearchParams
     public function setOption($name, $value)
     {
         $this->options[$name] = $value;
+    }
+
+    /**
+     * @return array
+     */
+    public function getSort(): array
+    {
+        return $this->sort;
     }
 }
