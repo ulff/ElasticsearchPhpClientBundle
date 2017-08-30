@@ -10,8 +10,8 @@ use Ulff\ElasticsearchPhpClientBundle\Model\GetParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\GetResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\IndexParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\IndexResponse;
-use Ulff\ElasticsearchPhpClientBundle\Model\SearchParams;
-use Ulff\ElasticsearchPhpClientBundle\Model\SearchResponse;
+use Ulff\ElasticsearchPhpClientBundle\Model\Search\SearchParams;
+use Ulff\ElasticsearchPhpClientBundle\Model\Search\SearchResponse;
 use Ulff\ElasticsearchPhpClientBundle\Model\UpdateParams;
 use Ulff\ElasticsearchPhpClientBundle\Model\UpdateResponse;
 
